@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# SPDX-License-Identifier: GPL-3.0-only
+# SPDX-License-Identifier: MIT
 """Runs the gates in hosts that give hooks no Claude Code transcript (Codex, DeepSeek Harness).
 
 The gates read a Claude Code transcript. Codex passes its own rollout file instead, and

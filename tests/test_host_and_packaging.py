@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: GPL-3.0-only
+# SPDX-License-Identifier: MIT
 """hostctx (model detection, cooldown), the shared helpers, and plugin packaging."""
 import glob
 import json
@@ -158,7 +158,7 @@ class PackagingTests(unittest.TestCase):
                 + glob.glob(os.path.join(HERE, "*.py")):
             with open(p, encoding="utf-8") as f:
                 head = f.read(400)
-            self.assertIn("SPDX-License-Identifier: GPL-3.0-only", head, p)
+            self.assertIn("SPDX-License-Identifier: MIT", head, p)
 
     # Chinese is allowed only where it is functional (claim-detection patterns and their tests) and in the Chinese README.
     CHINESE_OK = {
@@ -172,7 +172,7 @@ class PackagingTests(unittest.TestCase):
         for dirpath, dirs, files in os.walk(ROOT):
             dirs[:] = [d for d in dirs if d not in (".git", ".work", "__pycache__")]
             for fn in files:
-                if fn in ("LICENSE", "CLA.md") or fn.endswith((".pyc", ".png", ".gif")):
+                if fn == "LICENSE" or fn.endswith((".pyc", ".png", ".gif")):
                     continue  # images are binary; their bytes are not text
                 p = os.path.join(dirpath, fn)
                 rel = os.path.relpath(p, ROOT)

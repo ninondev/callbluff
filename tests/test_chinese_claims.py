@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: GPL-3.0-only
+# SPDX-License-Identifier: MIT
 """Chinese wording for the claim gates. English wording is tested in the other files."""
 import unittest
 

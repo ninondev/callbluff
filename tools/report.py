@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# SPDX-License-Identifier: GPL-3.0-only
+# SPDX-License-Identifier: MIT
 """callbluff report: read ~/.callbluff/firelog.jsonl and print gate fire counts.
 
 Behind the /callbluff:report command; also runnable by hand. Standard library only,

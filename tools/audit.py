@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# SPDX-License-Identifier: GPL-3.0-only
+# SPDX-License-Identifier: MIT
 """callbluff audit: run the execution_check logic over a whole repository.
 
 Scans every .py file and reports syntax errors and names that are used but never

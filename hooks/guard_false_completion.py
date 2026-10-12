@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# SPDX-License-Identifier: GPL-3.0-only
+# SPDX-License-Identifier: MIT
 """false_completion (Stop hook): "fixed" with nothing written. English and Chinese wording.
 
 Fires when all of these hold:

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# SPDX-License-Identifier: GPL-3.0-only
+# SPDX-License-Identifier: MIT
 """duration_claim (Stop hook): "I worked 8 hours" when the clock says 6. English and Chinese wording.
 
 Fires when all of these hold:

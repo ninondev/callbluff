@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: GPL-3.0-only
+# SPDX-License-Identifier: MIT
 """Fire log: every time a gate fires, append one line to ~/.callbluff/firelog.jsonl.
 
 Local only, standard library only. A failed write is ignored: the log must never

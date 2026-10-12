@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: GPL-3.0-only
+# SPDX-License-Identifier: MIT
 """The adapter that runs the gates in Codex and DeepSeek Harness.
 
 The payload shapes follow what Codex 0.159.2 sent to a hook in a recorded run

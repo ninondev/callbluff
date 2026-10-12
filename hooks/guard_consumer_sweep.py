@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# SPDX-License-Identifier: GPL-3.0-only
+# SPDX-License-Identifier: MIT
 """consumer_sweep (Stop hook): a widely used definition changed, its consumers did not.
 
 Fires when all of these hold:

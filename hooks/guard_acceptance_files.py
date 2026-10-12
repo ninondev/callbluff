@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# SPDX-License-Identifier: GPL-3.0-only
+# SPDX-License-Identifier: MIT
 """acceptance_file_guard (PreToolUse: Edit, Write, NotebookEdit, MultiEdit, Bash).
 
 Editing a test or acceptance file is not forbidden. It is escalated to a user

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# SPDX-License-Identifier: GPL-3.0-only
+# SPDX-License-Identifier: MIT
 """unmeasured_claim (Stop hook): performance numbers without a measurement.
 
 Fires when the last assistant text states a measured-sounding performance result

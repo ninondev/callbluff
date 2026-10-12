@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: GPL-3.0-only
+# SPDX-License-Identifier: MIT
 """false_completion, unmeasured_claim, duration_claim, claim_evidence."""
 import json
 import os

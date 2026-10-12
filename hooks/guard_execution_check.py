@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# SPDX-License-Identifier: GPL-3.0-only
+# SPDX-License-Identifier: MIT
 """execution_check (Stop hook): did this session leave broken code behind?
 
 For every file the session itself wrote (Edit, Write, MultiEdit, NotebookEdit):

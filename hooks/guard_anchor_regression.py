@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# SPDX-License-Identifier: GPL-3.0-only
+# SPDX-License-Identifier: MIT
 """anchor_regression (Stop hook): you changed the ruler, so measure again.
 
 Fires when all of these hold:

@@ -6,7 +6,7 @@
     "name": "Ninon"
   },
   "repository": "https://github.com/ninondev/callbluff",
-  "license": "GPL-3.0-only",
+  "license": "MIT",
   "keywords": [
     "codex",
     "hooks",

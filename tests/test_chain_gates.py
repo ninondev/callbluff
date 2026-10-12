@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: GPL-3.0-only
+# SPDX-License-Identifier: MIT
 """pilot_first, consumer_sweep, anchor_regression."""
 import json
 import os

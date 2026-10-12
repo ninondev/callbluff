@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: GPL-3.0-only
+# SPDX-License-Identifier: MIT
 """Host context: which model runs the session, which gate mode applies, cooldowns.
 
 The session model is read from the transcript, because hooks get no model id in

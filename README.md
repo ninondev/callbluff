@@ -140,11 +140,11 @@ Tests use only the standard library and synthetic transcripts.
 
 ## License
 
-GPL-3.0-only. See [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).
 
 ## Contributing
 
-Pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md). The maintainer reads issues. A CLA comment is required before a pull request is merged ([CLA.md](CLA.md)).
+Pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md). The maintainer reads issues.
 
 ## What comes next
 
