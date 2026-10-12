@@ -1,0 +1,68 @@
+{
+  "execution_check": {
+    "layer": "execution",
+    "hook": "hooks/guard_execution_check.py",
+    "desc": "Code written in the session has a syntax error or uses a name that is never defined",
+    "strong_mode": "block"
+  },
+  "pilot_first": {
+    "layer": "execution",
+    "hook": "hooks/guard_pilot_first.py",
+    "desc": "Batch of same-shape edits rolled out before any one was verified",
+    "strong_mode": "shadow"
+  },
+  "acceptance_file_guard": {
+    "layer": "execution",
+    "hook": "hooks/guard_acceptance_files.py",
+    "desc": "An existing test or acceptance file is edited",
+    "strong_mode": "precision"
+  },
+  "false_completion": {
+    "layer": "report",
+    "hook": "hooks/guard_false_completion.py",
+    "desc": "Claims something is fixed while the session wrote nothing",
+    "strong_mode": "shadow"
+  },
+  "unmeasured_claim": {
+    "layer": "report",
+    "hook": "hooks/guard_unmeasured_claims.py",
+    "desc": "Reports a performance number without any measurement",
+    "strong_mode": "shadow"
+  },
+  "delivery_inventory": {
+    "layer": "report",
+    "hook": "hooks/guard_delivery_inventory.py",
+    "desc": "Says the whole batch is done without listing what was done",
+    "strong_mode": "block"
+  },
+  "consumer_sweep": {
+    "layer": "chain",
+    "hook": "hooks/guard_consumer_sweep.py",
+    "desc": "A widely used definition changed and its docs or consumers did not",
+    "strong_mode": "block"
+  },
+  "anchor_regression": {
+    "layer": "chain",
+    "hook": "hooks/guard_anchor_regression.py",
+    "desc": "A detector or grader changed and the anchor suite was not rerun",
+    "strong_mode": "block"
+  },
+  "duration_claim": {
+    "layer": "report",
+    "hook": "hooks/guard_duration_claim.py",
+    "desc": "Claimed working time is more than 25% above the real time span",
+    "strong_mode": "shadow"
+  },
+  "claim_evidence": {
+    "layer": "report",
+    "hook": "hooks/guard_claim_evidence.py",
+    "desc": "Claims to have read or verified something with no matching trace in the session",
+    "strong_mode": "shadow"
+  },
+  "_strong_mode_legend": {
+    "block": "Stop or deny as usual.",
+    "shadow": "On strong hosts (opus, sonnet, fable families) the gate judges and logs but does not block. Other hosts get block.",
+    "precision": "On strong hosts the gate asks only when the session ran the test, saw it fail, and then weakened it (fewer assertions, new skip). Other weakening is logged in shadow mode.",
+    "_policy_source": "STRONG_FAMILIES in hooks/hostctx.py"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "callbluff",
+  "version": "0.1.0",
+  "description": "Makes the agent show evidence before it says done.",
+  "author": {
+    "name": "Ninon"
+  },
+  "repository": "https://github.com/ninondev/callbluff",
+  "license": "GPL-3.0-only",
+  "keywords": [
+    "codex",
+    "hooks",
+    "verification",
+    "agent"
+  ],
+  "hooks": "./hooks/codex.json"
+}

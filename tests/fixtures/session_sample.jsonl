@@ -1,0 +1,8 @@
+{"type": "user", "timestamp": "2026-01-01T09:00:00Z", "message": {"role": "user", "content": "Add a retry to fetch()."}}
+{"type": "assistant", "timestamp": "2026-01-01T09:00:05Z", "message": {"role": "assistant", "model": "claude-sonnet-5", "content": [{"type": "text", "text": "I will read the module first."}, {"type": "tool_use", "name": "Read", "input": {"file_path": "/work/app/fetch.py"}}]}}
+{"type": "user", "timestamp": "2026-01-01T09:00:06Z", "message": {"role": "user", "content": [{"type": "tool_result", "content": "def fetch(url):\n    return get(url)\n"}]}}
+{"type": "assistant", "timestamp": "2026-01-01T09:01:00Z", "message": {"role": "assistant", "model": "claude-sonnet-5", "content": [{"type": "tool_use", "name": "Edit", "input": {"file_path": "/work/app/fetch.py", "old_string": "return get(url)", "new_string": "return retry(get, url)"}}]}}
+{"type": "assistant", "timestamp": "2026-01-01T09:02:00Z", "message": {"role": "assistant", "model": "<synthetic>", "content": [{"type": "text", "text": "No response requested."}]}}
+{"type": "assistant", "timestamp": "2026-01-01T09:03:00Z", "message": {"role": "assistant", "model": "claude-sonnet-5", "content": [{"type": "tool_use", "name": "Bash", "input": {"command": "python3 -m pytest tests/test_fetch.py"}}]}}
+{"type": "user", "timestamp": "2026-01-01T09:03:04Z", "message": {"role": "user", "content": [{"type": "tool_result", "content": "2 passed in 0.12s"}]}}
+{"type": "assistant", "timestamp": "2026-01-01T09:03:10Z", "message": {"role": "assistant", "model": "claude-sonnet-5", "content": [{"type": "text", "text": "I added a retry to fetch() and ran the test file: 2 passed."}]}}

@@ -1,0 +1,8 @@
+{
+  "name": "callbluff",
+  "version": "0.1.0",
+  "description": "Makes the agent show evidence before it says done. Ten small hooks that check broken code, edited tests, unlisted batch work, unmeasured numbers and unverified claims.",
+  "author": {
+    "name": "Ninon"
+  }
+}

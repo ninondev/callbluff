@@ -1,0 +1,14 @@
+{
+  "name": "callbluff",
+  "owner": {
+    "name": "Ninon"
+  },
+  "description": "Hooks that make a Claude Code agent show evidence before it says done.",
+  "plugins": [
+    {
+      "name": "callbluff",
+      "source": "./",
+      "description": "Makes the agent show evidence before it says done."
+    }
+  ]
+}
