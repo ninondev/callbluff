@@ -59,7 +59,7 @@ DeepSeek Harness：仓库里有配置 `hooks/dsh.json`，接到它的 Claude Cod
 
 - 读字面的钩子靠正则，认英文和中文，只匹配字面、不懂上下文意思，会有误报。
 - 只看一轮对话最后那条回复。`execution_check` 只看得到用编辑工具写的文件，看不到 shell 命令写的；静态检查也会把运行时注入的名字报成未定义。
-- `consumer_sweep` 和 `anchor_regression` 只对 Python 项目有效。因为仓库还没公开，从 GitHub 安装的完整流程还没跑过。
+- `consumer_sweep` 和 `anchor_regression` 只对 Python 项目有效。
 
 ## 许可
 

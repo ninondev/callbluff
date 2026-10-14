@@ -120,7 +120,7 @@ I audited my own use of these hooks. Read this before you install. The numbers b
 
 So in this data, flat false "done" claims were rare. The bigger gaps were relaying someone else's result without rerunning it, and things that pass tests yet fail to work on the machine.
 
-**Limits of the measurement.** The data comes from one person on one machine. The rater was a Claude model working from written label rules. There was one rater, with no second rater and no blinding. The full audit is at https://github.com/ninondev/agent-done-audit (placeholder until published). The "done" analysis sees only checks run through the shell; browser, subagent and other-tool verification is invisible to it. I did not check how precise the "verified" labels are. The fire counts come from my own settings, including the default modes described above. Your results will differ.
+**Limits of the measurement.** The data comes from one person on one machine. The rater was a Claude model working from written label rules. There was one rater, with no second rater and no blinding. The full audit is at https://github.com/ninondev/agent-done-audit. The "done" analysis sees only checks run through the shell; browser, subagent and other-tool verification is invisible to it. I did not check how precise the "verified" labels are. The fire counts come from my own settings, including the default modes described above. Your results will differ.
 
 ## Limits
 
@@ -129,7 +129,6 @@ So in this data, flat false "done" claims were rare. The bigger gaps were relayi
 - execution_check sees files written through the editing tools. It does not see files written by a shell command.
 - The undefined-name check is static and conservative. A name injected at runtime is reported by mistake.
 - consumer_sweep and anchor_regression work on Python projects only. anchor_regression applies only in a tree that has `tests/selftest.py`.
-- I have not run the plugin install flow from GitHub end to end, in Claude Code or in Codex, because the repository is not published yet.
 
 ## Development
 
