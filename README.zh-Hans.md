@@ -53,7 +53,7 @@ DeepSeek Harness：仓库里有配置 `hooks/dsh.json`，接到它的 Claude Cod
 
 真正的大问题在别处：转述子 agent 的结果自己不重跑，还有测试都过了、在自己电脑上却跑不起来。
 
-测量局限：一个人、一台机器、一个评判者（一个 Claude 模型，照写明的标注规则判，没有双盲）。修好以后还没重新测误报率。完整核查报告见 [agent-done-audit](https://github.com/ninondev/agent-done-audit)。
+测量局限：一个人、一台机器、一个评判者（一个 Claude 模型，照写明的标注规则判，没有双盲）。修好以后还没重新测误报率。
 
 ## 局限
 

@@ -120,7 +120,7 @@ I audited my own use of these hooks. Read this before you install. The numbers b
 
 So in this data, flat false "done" claims were rare. The bigger gaps were relaying someone else's result without rerunning it, and things that pass tests yet fail to work on the machine.
 
-**Limits of the measurement.** The data comes from one person on one machine. The rater was a Claude model working from written label rules. There was one rater, with no second rater and no blinding. The full audit is at https://github.com/ninondev/agent-done-audit. The "done" analysis sees only checks run through the shell; browser, subagent and other-tool verification is invisible to it. I did not check how precise the "verified" labels are. The fire counts come from my own settings, including the default modes described above. Your results will differ.
+**Limits of the measurement.** The data comes from one person on one machine. The rater was a Claude model working from written label rules. There was one rater, with no second rater and no blinding. The "done" analysis sees only checks run through the shell; browser, subagent and other-tool verification is invisible to it. I did not check how precise the "verified" labels are. The fire counts come from my own settings, including the default modes described above. Your results will differ.
 
 ## Limits
 
