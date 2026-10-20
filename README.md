@@ -9,7 +9,7 @@ callbluff is a plugin for Claude Code and for Codex. It makes a coding agent sho
   <img src="docs/codex-demo.gif" width="100%" alt="A Codex session with callbluff. The agent writes util.py with return a + c and replies Done. The Stop hook blocks: util.py:2 uses undefined name c. The agent changes c to b, runs a check that succeeds, and reports the fix. A staged test replayed from a recorded run.">
 </picture>
 
-I made callbluff because an agent's report can drift from what it actually did. It is ten small hooks. Each one checks one gap between the report and the work: broken code left behind, a test weakened after it failed, "all done" with no list, a speed-up with no benchmark, or "tests pass" with no test run.
+I made callbluff because an agent's report can drift from what it actually did. It is ten small hooks, which this README calls gates. Each one checks one gap between the report and the work: broken code left behind, a test weakened after it failed, "all done" with no list, a speed-up with no benchmark, or "tests pass" with no test run.
 
 A hook that trips exits with code 2 (or asks you to confirm) and tells the agent what is missing. It uses only the Python 3 standard library. Nothing leaves your machine.
 
@@ -19,9 +19,9 @@ A hook that trips exits with code 2 (or asks you to confirm) and tells the agent
 Fix each one and run it. If one is a false alarm (for example a name injected at runtime), say so by name in your report.
 ```
 
-That is real output from this repo on a small test file (the path was shortened). In a recorded Codex run, the same gate stopped a "Done." after the agent wrote `return a + c` into a two-line file; the agent changed `c` to `b` and checked it.
+That is output from this repo on a small test file (the path was shortened). In a recorded Codex run, the same gate stopped a "Done." after the agent wrote `return a + c` into a two-line file; the agent changed `c` to `b` and checked it.
 
-I audited these hooks on my own sessions, weak results included: 5 of 84 judged fires were real catches, and all 5 were small. See the full numbers in [Fact boundary](#fact-boundary) below.
+I audited these hooks on my own sessions, weak results included: 5 of 84 judged fires were real catches, and all 5 were small. See the full numbers in [Audit results](#audit-results) below.
 
 ## Install
 
@@ -63,6 +63,8 @@ To change which files acceptance_file_guard protects, add `.callbluff.json` to t
 
 ## What each gate does
 
+Each gate's name shows up in its messages and in the fire log.
+
 | Gate | Stage | What it catches |
 |---|---|---|
 | execution_check | Stop | Code this session wrote has a syntax error or a name that is never defined. Also checks JSON, shell, JS, Ruby and PHP if the tool is installed. |
@@ -87,7 +89,7 @@ By default the hook reads the session model from the transcript.
 
 I set this as the default policy by hand and have not measured it. Change it in `gates.json` (`strong_mode`) and `STRONG_FAMILIES` in `hooks/hostctx.py`.
 
-## Fact boundary
+## Audit results
 
 I audited my own use of these hooks. Read this before you install. The numbers below were measured on the version before the fixes listed under "What changed after the audit".
 
@@ -133,14 +135,14 @@ So in this data, flat false "done" claims were rare. The bigger gaps were relayi
 ## Development
 
 ```
-nice -n 10 python3 -m unittest discover -s tests
+python3 -m unittest discover -s tests
 ```
 
 Tests use only the standard library and synthetic transcripts.
 
 ## Contributing
 
-Pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md). The maintainer reads issues.
+Pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 

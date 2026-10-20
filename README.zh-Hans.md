@@ -63,7 +63,7 @@ DeepSeek Harness：仓库里有配置 `hooks/dsh.json`，接到它的 Claude Cod
 
 ## 许可
 
-MIT，见 [LICENSE](LICENSE)。欢迎提 PR，先看 [CONTRIBUTING.md](CONTRIBUTING.md)，issue 我都会看。
+MIT，见 [LICENSE](LICENSE)。欢迎提 PR，先看 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 ## 下一步
 

@@ -109,7 +109,7 @@ python3 -I scripts/q1_hook_fires.py ~/.claude/projects --per-hook 15 --sample-ou
 python3 -I scripts/q1_stats.py fires_sample.csv
 ```
 
-Without a fire log, `q1_hook_fires.py` finds blocking fires in the transcripts themselves (Stop hook errors, PreToolUse and PostToolUse hook errors). Shadow-mode fires leave no trace there; pass `--firelog` if your hooks keep a log. The tests run every script on a synthetic fixture: `nice -n 10 python3 -m unittest`.
+Without a fire log, `q1_hook_fires.py` finds blocking fires in the transcripts themselves (Stop hook errors, PreToolUse and PostToolUse hook errors). Shadow-mode fires leave no trace there; pass `--firelog` if your hooks keep a log. The tests run every script on a synthetic fixture: `python3 -m unittest`.
 
 ## What comes next
 
@@ -118,5 +118,3 @@ The fixed hooks are callbluff itself; see the [main README](../README.md). The o
 ## License
 
 The scripts, text and tables are under the [MIT License](../LICENSE). Copyright (c) 2026 Ninon. See [CONTRIBUTING.md](../CONTRIBUTING.md) to contribute.
-
-If this was useful to you, a star helps other people find it.
