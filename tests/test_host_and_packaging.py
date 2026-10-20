@@ -165,6 +165,10 @@ class PackagingTests(unittest.TestCase):
         "hooks/_shared.py", "hooks/guard_false_completion.py", "hooks/guard_unmeasured_claims.py",
         "hooks/guard_delivery_inventory.py", "hooks/guard_duration_claim.py", "hooks/guard_claim_evidence.py",
         "tests/test_chinese_claims.py", "README.zh-Hans.md",
+        # hook-audit scans Chinese "done" claims too: its patterns, fixture builder, fixtures and test.
+        "hook-audit/scripts/q2_done_claims.py", "hook-audit/tests/build_fixture.py", "hook-audit/tests/test_scripts.py",
+        "hook-audit/tests/fixtures/projects/-work-demo/sess-1.jsonl",
+        "hook-audit/tests/fixtures/projects/-work-demo-fork/sess-1-fork.jsonl",
     }
 
     def test_chinese_text_appears_only_in_claim_patterns_and_their_tests(self):

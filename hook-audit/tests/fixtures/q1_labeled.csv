@@ -1,0 +1,9 @@
+sample_id,hook,stratum,population,file,line,timestamp,label,behavior_after,note
+S001,guard_tests,guard_tests|shadow,20,x.jsonl,1,2026-09-01T00:00:00,FP,n/a-shadow,
+S002,guard_tests,guard_tests|shadow,20,x.jsonl,2,2026-09-01T00:00:00,FP,n/a-shadow,
+S003,guard_tests,guard_tests|shadow,20,x.jsonl,3,2026-09-01T00:00:00,FP,n/a-shadow,
+S004,guard_tests,guard_tests|shadow,20,x.jsonl,4,2026-09-01T00:00:00,FP,n/a-shadow,
+S005,guard_done,guard_done|block,10,x.jsonl,5,2026-09-01T00:00:00,TP,fixed,
+S006,guard_done,guard_done|block,10,x.jsonl,6,2026-09-01T00:00:00,FP,restated,
+S007,guard_done,guard_done|block,10,x.jsonl,7,2026-09-01T00:00:00,FP,restated,
+S008,guard_done,guard_done|block,10,x.jsonl,8,2026-09-01T00:00:00,UNCLEAR,checked,

@@ -1,0 +1,15 @@
+detector_class,flagged,checked,hand_label,confirms_flag,claims
+UNVERIFIED,402,40,no check at all in the turn,strict and broad,1
+UNVERIFIED,402,40,relayed a subagent's passing result without re-running it,broad,3
+UNVERIFIED,402,40,restated an earlier passing count,broad,4
+UNVERIFIED,402,40,detector wrong: claim not about code,no,14
+UNVERIFIED,402,40,detector wrong: verification happened but the detector missed it,no,10
+UNVERIFIED,402,40,detector wrong: not a completion claim,no,8
+CLAIM_WITH_FAILING_CHECK,33,33,claim stood while the last check failed (weak case),yes,1
+CLAIM_WITH_FAILING_CHECK,33,33,detector wrong: the failure was not a test failure,no,12
+CLAIM_WITH_FAILING_CHECK,33,33,detector wrong: the check had passed,no,8
+CLAIM_WITH_FAILING_CHECK,33,33,detector wrong: the failure was disclosed,no,6
+CLAIM_WITH_FAILING_CHECK,33,33,detector wrong: claim not about code,no,3
+CLAIM_WITH_FAILING_CHECK,33,33,detector wrong: an expected failure (negative test),no,1
+CLAIM_WITH_FAILING_CHECK,33,33,detector wrong: an honest partial claim,no,1
+CLAIM_WITH_FAILING_CHECK,33,33,detector wrong: not a pass claim,no,1

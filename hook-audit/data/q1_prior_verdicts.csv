@@ -1,0 +1,7 @@
+gate,judged,tp,fp,unclear
+protected-tests,16,0,12,4
+pilot-first,6,0,6,0
+claim-evidence,1,0,1,0
+anchor-regression,1,0,1,0
+delivery-inventory,1,0,0,1
+ALL,25,0,20,5

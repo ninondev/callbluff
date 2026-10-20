@@ -35,7 +35,7 @@ To try it in Claude Code for one session without installing: `claude --plugin-di
 | Codex | `codex plugin marketplace add ninondev/callbluff`, then `codex plugin add callbluff@callbluff` | all ten |
 | DeepSeek Harness | the `hooks/dsh.json` config below (not tested yet) | five |
 
-**Codex.** Codex gives hooks its own session file instead of a Claude Code transcript, so `hooks/adapter.py` keeps a small transcript of its own in `~/.callbluff/sessions/`, built from the hook events, and runs the same gates on it. I tested it with Codex CLI 0.159.2, installed from a local copy of this repository into a throwaway Codex home, with `--dangerously-bypass-hook-trust`. In those runs false_completion and execution_check blocked and the agent corrected itself. I have not installed it from GitHub. The audit numbers below come from Claude Code only.
+**Codex.** Codex gives hooks its own session file instead of a Claude Code transcript, so `hooks/adapter.py` keeps a small transcript of its own in `~/.callbluff/sessions/`, built from the hook events, and runs the same gates on it. I tested it with Codex CLI 0.159.2, installed from a local copy of this repository into a throwaway Codex home, with `--dangerously-bypass-hook-trust`. In those runs false_completion and execution_check blocked and the agent corrected itself. Installing it from GitHub into a throwaway Codex home also worked (checked 2026-10-19), but I have not run an agent session on that install. The audit numbers below come from Claude Code only.
 
 **DeepSeek Harness.** Mount its Claude Code hooks bridge and point it at `hooks/dsh.json`:
 
@@ -120,7 +120,7 @@ I audited my own use of these hooks. Read this before you install. The numbers b
 
 So in this data, flat false "done" claims were rare. The bigger gaps were relaying someone else's result without rerunning it, and things that pass tests yet fail to work on the machine.
 
-**Limits of the measurement.** The data comes from one person on one machine. The rater was a Claude model working from written label rules. There was one rater, with no second rater and no blinding. The "done" analysis sees only checks run through the shell; browser, subagent and other-tool verification is invisible to it. I did not check how precise the "verified" labels are. The fire counts come from my own settings, including the default modes described above. Your results will differ.
+**Limits of the measurement.** The data comes from one person on one machine. The rater was a Claude model working from written label rules. There was one rater, with no second rater and no blinding. The full audit is in [hook-audit](hook-audit/). The "done" analysis sees only checks run through the shell; browser, subagent and other-tool verification is invisible to it. I did not check how precise the "verified" labels are. The fire counts come from my own settings, including the default modes described above. Your results will differ.
 
 ## Limits
 

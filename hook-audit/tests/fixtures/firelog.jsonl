@@ -1,0 +1,5 @@
+{"ts": "2026-09-01 10:00:00", "gate": "guard_tests", "mode": "shadow", "transcript_path": "/work/demo/s.jsonl"}
+{"ts": "2026-09-01 11:00:00", "gate": "guard_tests", "mode": "shadow", "transcript_path": "/work/demo/s.jsonl"}
+{"ts": "2026-09-02 10:00:00", "gate": "guard_tests", "mode": "block", "transcript_path": "/work/demo/s.jsonl"}
+{"ts": "2026-09-03 10:00:00", "gate": "guard_done", "mode": "block", "transcript_path": "/work/demo/s.jsonl"}
+{"ts": "2026-09-04 10:00:00", "gate": "guard_done", "mode": "block"}

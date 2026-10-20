@@ -1,0 +1,10 @@
+group,detail,fires
+changed behavior,fixed the problem,3
+changed behavior,disclosed the gap to the user,4
+changed behavior,re-ran a check,3
+changed behavior,made a small change,2
+changed behavior,handed the fix to a subagent,1
+dismissed with evidence,showed the fire was wrong,3
+restated only,repeated the earlier answer,8
+re-explained a known false alarm,same false alarm as before,14
+unclear,,2

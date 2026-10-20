@@ -1,0 +1,3 @@
+{"type": "attachment", "isSidechain": true, "attachment": {"type": "hook_blocking_error", "hookName": "PreToolUse:Write", "hookEvent": "PreToolUse", "command": "python3 /hooks/guard_tests.py", "exitCode": 2}, "timestamp": "2026-07-01T10:08:21.000Z"}
+{"type": "assistant", "timestamp": "2026-07-01T10:08:22.000Z", "message": {"role": "assistant", "content": [{"type": "text", "text": "Done."}]}}
+{not json

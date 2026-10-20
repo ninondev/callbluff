@@ -1,0 +1,12 @@
+sample_id,detector_class,file,human_row,reply_row,hand_label,reason
+U01,UNVERIFIED,x.jsonl,1,2,CORRECT,
+U02,UNVERIFIED,x.jsonl,2,3,RELAY,
+U03,UNVERIFIED,x.jsonl,3,4,RECAP,
+U04,UNVERIFIED,x.jsonl,4,5,WRONG:not_code,
+U05,UNVERIFIED,x.jsonl,5,6,WRONG:not_code,
+U06,UNVERIFIED,x.jsonl,6,7,WRONG:verified_missed,
+U07,UNVERIFIED,x.jsonl,7,8,WRONG:not_a_claim,
+U08,UNVERIFIED,x.jsonl,8,9,WRONG:not_code,
+U09,UNVERIFIED,x.jsonl,9,10,WRONG:not_code,
+U10,UNVERIFIED,x.jsonl,10,11,WRONG:not_code,
+F01,CLAIM_WITH_FAILING_CHECK,x.jsonl,1,2,CORRECT(weak),
