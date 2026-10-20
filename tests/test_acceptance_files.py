@@ -4,7 +4,7 @@ import os
 import tempfile
 import unittest
 
-from helpers import HookTestCase, run_hook, asst_text, asst_tool, tool_result
+from helpers import HookTestCase, run_hook, asst_text, asst_tool, tool_result, needs_non_temp_checkout
 
 
 class AcceptanceFileGuardTests(HookTestCase):
@@ -16,6 +16,7 @@ class AcceptanceFileGuardTests(HookTestCase):
     def decision(self, out):
         return json.loads(out)["hookSpecificOutput"]["permissionDecision"] if out.strip() else None
 
+    @needs_non_temp_checkout
     def test_existing_test_file_asks(self):
         p = self.write("tests/test_a.py", "def test_x():\n    assert 1\n")
         code, out, _ = self.call("Edit", {"file_path": p, "old_string": "1", "new_string": "2"})
@@ -27,6 +28,7 @@ class AcceptanceFileGuardTests(HookTestCase):
         p = self.write("src/app.py", "x = 1\n")
         self.assertEqual(self.call("Edit", {"file_path": p, "old_string": "1", "new_string": "2"})[1], "")
 
+    @needs_non_temp_checkout
     def test_bash_append_to_existing_test_file_asks(self):
         self.write("tests/test_a.py", "x = 1\n")
         _, out, _ = self.call("Bash", {"command": "cat >> tests/test_a.py <<'EOF'\nassert 1\nEOF"})
@@ -36,6 +38,7 @@ class AcceptanceFileGuardTests(HookTestCase):
         self.write("tests/test_a.py", "x = 1\n")
         self.assertEqual(self.call("Bash", {"command": "cat tests/test_a.py"})[1], "")
 
+    @needs_non_temp_checkout
     def test_custom_globs(self):
         self.write(".callbluff.json", json.dumps({"protected_globs": ["golden/*"]}))
         gold = self.write("golden/a.txt", "x\n")
@@ -43,6 +46,7 @@ class AcceptanceFileGuardTests(HookTestCase):
         self.assertEqual(self.decision(self.call("Edit", {"file_path": gold, "old_string": "x", "new_string": "y"})[1]), "ask")
         self.assertEqual(self.call("Edit", {"file_path": plain, "old_string": "x", "new_string": "y"})[1], "")
 
+    @needs_non_temp_checkout
     def test_cooldown_per_file(self):
         p = self.write("tests/test_a.py", "x = 1\n")
         first = self.call("Edit", {"file_path": p, "old_string": "1", "new_string": "2"})[1]
@@ -70,6 +74,7 @@ class PrecisionModeTests(HookTestCase):
                          "new_string": "assert 1\n\ndef test_b():\n    assert 2"}, [self.host()])[1]
         self.assertEqual(out, "")
 
+    @needs_non_temp_checkout
     def test_weakening_after_a_red_run_asks(self):
         p = self.write("tests/test_a.py", "def test_a():\n    assert 1 == 2\n")
         rows = [self.host(), asst_tool("Bash", {"command": "python3 -m pytest tests/test_a.py"}),
@@ -77,6 +82,7 @@ class PrecisionModeTests(HookTestCase):
         out = self.call({"file_path": p, "old_string": "assert 1 == 2", "new_string": "pass"}, rows)[1]
         self.assertEqual(json.loads(out)["hookSpecificOutput"]["permissionDecision"], "ask")
 
+    @needs_non_temp_checkout
     def test_weakening_without_a_red_run_is_only_logged(self):
         p = self.write("tests/test_a.py", "def test_a():\n    assert 1 == 2\n")
         home = os.path.join(self.dir, "home")
@@ -89,6 +95,7 @@ class PrecisionModeTests(HookTestCase):
             rows = [json.loads(x) for x in f]
         self.assertEqual([r.get("mode") for r in rows], ["shadow"])
 
+    @needs_non_temp_checkout
     def test_new_skip_marker_after_red_run_asks(self):
         p = self.write("tests/test_a.py", "def test_a():\n    assert 1 == 2\n")
         rows = [self.host(), asst_tool("Bash", {"command": "pytest tests/test_a.py"}), tool_result("1 failed")]
@@ -149,6 +156,7 @@ class RegressionNewFilesAndScratch(HookTestCase):
         code, out, lines = self.run_logged("Bash", {"command": "python3 -m pytest > /tmp/test_output.txt"})
         self.assertEqual((code, out, lines), (0, "", []))
 
+    @needs_non_temp_checkout
     def test_a_project_that_lives_under_a_folder_called_tmp_is_still_guarded(self):
         # The folder-name rule looks only below the project directory.
         proj = os.path.join(self.dir, "tmp", "app")
@@ -159,6 +167,7 @@ class RegressionNewFilesAndScratch(HookTestCase):
             "cwd": proj, "transcript_path": t})
         self.assertEqual(json.loads(out)["hookSpecificOutput"]["permissionDecision"], "ask")
 
+    @needs_non_temp_checkout
     def test_existing_test_file_still_asks_and_is_logged(self):
         p = self.write("tests/test_a.py", "def test_x():\n    assert 1\n")
         code, out, lines = self.run_logged("Edit", {"file_path": p, "old_string": "assert 1", "new_string": "pass"})

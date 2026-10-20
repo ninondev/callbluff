@@ -41,6 +41,16 @@ def table(out, header):
     return res
 
 
+def read(path):
+    with open(path, encoding="utf-8") as f:
+        return f.read()
+
+
+def read_csv(path):
+    with open(path, encoding="utf-8", newline="") as f:
+        return list(csv.DictReader(f))
+
+
 class Wilson(unittest.TestCase):
     def test_published_intervals(self):
         lo, hi = common.wilson(5, 59)
@@ -93,9 +103,9 @@ class Q2(unittest.TestCase):
             path = os.path.join(d, "s.csv")
             out = run("q2_done_claims.py", PROJECTS, "--per-class", "5", "--sample-out", path)
             self.assertIn("sample: 2 rows written", out)
-            body = open(path).read()
+            body = read(path)
             self.assertNotIn(SENTINEL, body)
-            rows = list(csv.DictReader(open(path)))
+            rows = read_csv(path)
             self.assertEqual({r["detector_class"] for r in rows}, {"UNVERIFIED", "CLAIM_WITH_FAILING_CHECK"})
 
 
@@ -112,14 +122,14 @@ class Q1(unittest.TestCase):
             a, b = os.path.join(d, "a.csv"), os.path.join(d, "b.csv")
             run("q1_hook_fires.py", PROJECTS, "--per-hook", "1", "--sample-out", a)
             run("q1_hook_fires.py", PROJECTS, "--per-hook", "1", "--sample-out", b)
-            self.assertEqual(open(a).read(), open(b).read())
-            self.assertEqual(len(list(csv.DictReader(open(a)))), 2)
+            self.assertEqual(read(a), read(b))
+            self.assertEqual(len(read_csv(a)), 2)
 
     def test_alloc(self):
         with tempfile.TemporaryDirectory() as d:
             a = os.path.join(d, "a.csv")
             run("q1_hook_fires.py", PROJECTS, "--alloc", "guard_tests.py|PreToolUse=2", "--sample-out", a)
-            rows = list(csv.DictReader(open(a)))
+            rows = read_csv(a)
             self.assertEqual([r["stratum"] for r in rows], ["guard_tests.py|PreToolUse"] * 2)
 
     def test_firelog_skips_judged(self):

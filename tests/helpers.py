@@ -15,6 +15,18 @@ HOOKS = os.path.join(ROOT, "hooks")
 WORK = os.path.join(HERE, ".work")
 
 
+def _work_is_temp():
+    sys.path.insert(0, HOOKS)
+    from guard_acceptance_files import is_scratch
+    return is_scratch(os.path.join(WORK, "x"), ROOT)
+
+
+# acceptance_file_guard ignores files in temp directories by design, so these tests cannot
+# pass from a checkout inside one (a clone in /tmp, for example).
+needs_non_temp_checkout = unittest.skipIf(
+    _work_is_temp(), "the checkout is inside a temp directory, which acceptance_file_guard ignores; clone it elsewhere")
+
+
 def run_hook(script, payload, env=None):
     """Run a hook script with a JSON payload on stdin. Returns (code, stdout, stderr)."""
     e = dict(os.environ, CALLBLUFF_NO_FIRELOG="1")

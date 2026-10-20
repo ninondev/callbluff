@@ -12,7 +12,7 @@ import os
 import re
 import uuid
 
-from helpers import HookTestCase, run_hook, ROOT
+from helpers import HookTestCase, run_hook, ROOT, needs_non_temp_checkout
 
 
 class AdapterTestCase(HookTestCase):
@@ -140,6 +140,7 @@ class StopTests(AdapterTestCase):
 
 
 class PreToolUseTests(AdapterTestCase):
+    @needs_non_temp_checkout
     def test_codex_patch_on_an_existing_test_file_asks(self):
         path = self.write("tests/test_login.py", "def test_ok():\n    assert True\n")
         patch = f"*** Begin Patch\n*** Update File: {path}\n@@\n-    assert True\n+    pass\n*** End Patch"
