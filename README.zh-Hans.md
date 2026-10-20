@@ -4,7 +4,7 @@
 
 callbluff 是给 Claude Code 和 Codex 用的插件：AI 说「做完了」之前，必须先拿出证据。
 
-AI 最后交差时说的经常和实际干的对不上，我做 callbluff 就是为了拦住这些情况。它由十个小钩子组成，每个盯一种脱节：留下跑不起来的代码、测试失败了就悄悄改松、改了至少 4 个文件只说「全做完了」却不列清单、说快了三倍却没跑计时、说测试全过却一条命令都没跑、没写文件也没 commit 就说修好了。
+AI最后交差时说的可能和实际干的对不上，我做callbluff就是为了拦住这些情况。它由十个小钩子组成，每个盯一种脱节：留下跑不起来的代码、测试失败了就悄悄改松、改了至少 4 个文件只说「全做完了」却不列清单、说快了三倍却没跑计时、说测试全过却一条命令都没跑、没写文件也没 commit 就说修好了。
 
 钩子拦下时会返回退出码 2（或让你确认），直接告诉 AI 缺的是什么。只用 Python 3 标准库，所有东西都只在你自己的电脑上，不往外发。
 
@@ -28,7 +28,7 @@ codex plugin marketplace add ninondev/callbluff
 codex plugin add callbluff@callbluff
 ```
 
-在 Codex CLI 0.159.2 里实测过：AI 在两行代码的文件里写了 `return a + c`（`c` 未定义）就说「Done.」，被 `execution_check` 拦下后它自己把 `c` 改成 `b` 并跑了一遍检查。还没从 GitHub 装过。
+在 Codex CLI 0.159.2 里实测过：AI 在两行代码的文件里写了 `return a + c`（`c` 未定义）就说「Done.」，被 `execution_check` 拦下后它自己把 `c` 改成 `b` 并跑了一遍检查。10 月 19 日在临时的 Codex 环境里从 GitHub 装过，能装上，但还没在这个装法上跑过 AI 会话。
 
 DeepSeek Harness：仓库里有配置 `hooks/dsh.json`，接到它的 Claude Code 钩子桥上用，还没实测过。那边的钩子拿不到 AI 最后那条回复，所以十个里只有五个能用。
 
@@ -53,7 +53,7 @@ DeepSeek Harness：仓库里有配置 `hooks/dsh.json`，接到它的 Claude Cod
 
 真正的大问题在别处：转述子 agent 的结果自己不重跑，还有测试都过了、在自己电脑上却跑不起来。
 
-测量局限：一个人、一台机器、一个评判者（一个 Claude 模型，照写明的标注规则判，没有双盲）。修好以后还没重新测误报率。
+测量局限：一个人、一台机器、一个评判者（一个 Claude 模型，照写明的标注规则判，没有双盲）。修好以后还没重新测误报率。完整核查报告见 [hook-audit](hook-audit/)。
 
 ## 局限
 
@@ -63,7 +63,7 @@ DeepSeek Harness：仓库里有配置 `hooks/dsh.json`，接到它的 Claude Cod
 
 ## 许可
 
-MIT，见 [LICENSE](LICENSE)。欢迎提 PR，先看 [CONTRIBUTING.md](CONTRIBUTING.md)，issue 我都会看。
+MIT，见 [LICENSE](LICENSE)。欢迎提 PR，先看 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 ## 下一步
 
