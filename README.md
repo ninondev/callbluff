@@ -4,10 +4,7 @@ English · [简体中文](README.zh-Hans.md)
 
 callbluff is a plugin for Claude Code and for Codex. It makes a coding agent show evidence before it says "done".
 
-<picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="docs/codex-demo.png">
-  <img src="docs/codex-demo.gif" width="100%" alt="A Codex session with callbluff. The agent writes util.py with return a + c and replies Done. The Stop hook blocks: util.py:2 uses undefined name c. The agent changes c to b, runs a check that succeeds, and reports the fix. A staged test replayed from a recorded run.">
-</picture>
+<img src="docs/callbluff-demo.png" width="100%" alt="A staged Codex run with callbluff. The agent writes util.py with return a + c and replies Done, which is struck through. The execution_check hook blocks because util.py:2 uses undefined name c. The agent changes c to b, runs a check that succeeds, and reports the fix.">
 
 I made callbluff because an agent's report can drift from what it actually did. It is ten small hooks, which this README calls gates. Each one checks one gap between the report and the work: broken code left behind, a test weakened after it failed, "all done" with no list, a speed-up with no benchmark, or "tests pass" with no test run.
 

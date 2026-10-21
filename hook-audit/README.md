@@ -1,5 +1,6 @@
 # Hook audit
 
+<img src="figure-1.png" width="100%" alt="Figure with three charts from the callbluff hook audit: real-catch rate per hook in 59 random fires, what the agent did after 40 blocks, and check status of 873 code done claims.">
 
 **Of 84 guard-hook fires judged one by one, 5 caught a real problem, and all 5 were small.** The hooks were there to stop my coding agent from cutting corners, above all from calling work done when it was not. That failure turned out to be rare. Across 873 code-related "done" claims in Claude Code from June to October 2026, about **1.2%** had no check behind them at all (95% CI 0.2% to 5.9%). Counting passing results that were relayed or restated instead of re-run, the figure is **9.2%** (95% CI 4.8% to 16.0%).
 
