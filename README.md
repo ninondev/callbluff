@@ -8,7 +8,7 @@ callbluff is a plugin for Claude Code and for Codex. It makes a coding agent sho
 
 I made callbluff because an agent's report can drift from what it actually did. It is ten small hooks, which this README calls gates. Each one checks one gap between the report and the work: broken code left behind, a test weakened after it failed, "all done" with no list, a speed-up with no benchmark, or "tests pass" with no test run.
 
-A hook that trips exits with code 2 (or asks you to confirm) and tells the agent what is missing. It uses only the Python 3 standard library. Nothing leaves your machine.
+A hook that trips exits with code 2 (or asks you to confirm) and tells the agent what is missing. With opus, sonnet and fable models, five of the gates only log by default; see [Modes](#modes). It uses only the Python 3 standard library. Nothing leaves your machine.
 
 ```
 [callbluff:execution_check] Code written in this session looks broken. Fix it before you hand over:
